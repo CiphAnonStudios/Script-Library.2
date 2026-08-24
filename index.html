@@ -1151,15 +1151,7 @@ footer{
     transform: rotate(344deg);
 }
 
-/* =========================================================
-   Image Swapper
-========================================================= */
 
-   #myImage {
-      width:400px;
-      height:300px;
-      object-fit: cover;
-   }
 
 </style>
 </head>
@@ -1191,16 +1183,7 @@ footer{
 
     </div>
 
-     <img class="Logo" src="Images/Logo.png">
-
-     <!-- HTML -->
-<img id="myImage" alt=" ">
-
-    <div class="nav-links">
-
-      <a href="#scripts">
-        Library
-      </a>
+     <img class="Logo" src="Images/Logo.png"
 
       <a href="#about">
         About
@@ -2318,22 +2301,6 @@ renderScripts();
   }
   step();
 })();
-
-/* =========================================================
-   Images Swapper
-========================================================= */
-// JavaScript
-const images = ["Images/17.png", "Images/18.png"];
-
-   let currentIndex = 0;
-   const imgElement = document.getElementById("myImage");
-
-   function switchImage() {
-      currentIndex = (currentIndex+1) % images.length;
-      imgElement.src = images[currentIndex];
-   }
-
-   setInterval(switchImage, 3000);
 
 
 </script>
