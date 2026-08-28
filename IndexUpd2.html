@@ -1123,6 +1123,41 @@ renderScripts();
   }
   step();
 })();
+
+const backdrop = document.querySelector(".script-modal-backdrop");
+
+function createRandomGlitch() {
+    const glitch = document.createElement("div");
+    glitch.className = "glitch-hole";
+
+    const width = Math.floor(Math.random() * 180) + 20;
+    const height = Math.floor(Math.random() * 35) + 4;
+
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+
+    glitch.style.width = `${width}px`;
+    glitch.style.height = `${height}px`;
+    glitch.style.left = `${x}%`;
+    glitch.style.top = `${y}%`;
+
+    backdrop.appendChild(glitch);
+
+    setTimeout(() => {
+        glitch.remove();
+    }, 80);
+}
+
+function randomGlitchLoop() {
+    createRandomGlitch();
+
+    // Completely unpredictable delay
+    const delay = Math.random() * 450 + 30;
+
+    setTimeout(randomGlitchLoop, delay);
+}
+
+randomGlitchLoop();
 </script>
 
 </body>
