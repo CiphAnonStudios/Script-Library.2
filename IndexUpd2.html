@@ -461,88 +461,14 @@ footer{
 }
 
 .script-modal-backdrop {
-position: absolute;
-inset: 0;
-background:
-radial-gradient(circle at 18% 22%, rgb(255 120 0 / 0.18), transparent 12%),
-radial-gradient(circle at 72% 66%, rgb(255 110 0 / 0.22), transparent 16%),
-radial-gradient(circle at 50% 50%, rgb(255 140 0 / 0.08), transparent 58%),
-linear-gradient(180deg, rgb(255 120 0 / 0.12), rgb(255 70 0 / 0.18)),
-rgb(255 110 0 / 0.14);
-backdrop-filter: blur(10px) contrast(1.5) saturate(2.1);
-overflow: hidden;
-isolation: isolate;
+    position: absolute;
+    inset: 0;
+    background: rgb(255 110 0 / 27%);
+    backdrop-filter: blur(10px);
 }
-.script-modal-backdrop::before,
-.script-modal-backdrop::after {
-content: "";
-position: absolute;
-inset: 0;
-pointer-events: none;
-}
-.script-modal-backdrop::before {
-background:
-repeating-linear-gradient(
-0deg,
-transparent 0 14px,
-rgb(255 120 0 / 0.22) 14px 20px,
-transparent 20px 34px
-),
-repeating-linear-gradient(
-90deg,
-transparent 0 18px,
-rgb(255 145 0 / 0.20) 18px 26px,
-transparent 26px 44px
-);
-mix-blend-mode: screen;
-opacity: 0.95;
-animation: orange-corrupt-scan 1.05s steps(1, end) infinite;
-}
-.script-modal-backdrop::after {
-background:
-linear-gradient(
-90deg,
-transparent 0 10%,
-rgb(255 125 0 / 0.28) 10% 16%,
-transparent 16% 28%,
-rgb(255 105 0 / 0.24) 28% 34%,
-transparent 34% 48%,
-rgb(255 145 0 / 0.22) 48% 56%,
-transparent 56% 100%
-),
-linear-gradient(
-180deg,
-transparent 0 22%,
-rgb(255 150 0 / 0.18) 22% 26%,
-transparent 26% 54%,
-rgb(255 120 0 / 0.20) 54% 60%,
-transparent 60% 100%
-);
-mix-blend-mode: overlay;
-opacity: 0.8;
-animation: orange-corrupt-shift 0.38s steps(2, end) infinite, orange-flicker 0.12s infinite;
-}
-@keyframes orange-corrupt-scan {
-0%   { transform: translateY(-10px) skewX(0deg); }
-50%  { transform: translateY(0) skewX(2deg); }
-100% { transform: translateY(10px) skewX(0deg); }
-}
-@keyframes orange-corrupt-shift {
-0%   { transform: translateX(0); }
-20%  { transform: translateX(-4px) translateY(1px); }
-40%  { transform: translateX(5px) translateY(-1px); }
-60%  { transform: translateX(-3px); }
-80%  { transform: translateX(4px); }
-100% { transform: translateX(0); }
-}
-@keyframes orange-flicker {
-0%, 100% { opacity: 0.3; }
-15% { opacity: 0.9; }
-35% { opacity: 0.45; }
-55% { opacity: 1; }
-75% { opacity: 0.5; }
-}
-  
+
+
+
 .script-modal-content{
   position:relative;
   z-index:1;
@@ -1092,13 +1018,13 @@ renderScripts();
   if(!el) return;
   const lines = [
     'Coding I So Fun!!!',
-    'Fully Self Taught Coder.',
+    'Fully Self-Taught Coder.',
     'YouTube: @ItsToonyTime',
-    'My Full Inventory For All my Script And Coding Projects I Have Made.',
+    'My Full Inventory For All My Script And Coding Projects I Have Made.',
     'YouTube: @CiphAnonStudios',
     'Coding Is So Fun.',
     'YouTube: @ItsToonyTimeC',
-    'All Started Because I wanted To Play Games At School 4 Years Ago.'
+    'All Started Because I wanted to Play Games At School 4 Years Ago.'
   ];
   let i=0,pos=0,forward=true;
   function step(){
@@ -1124,40 +1050,7 @@ renderScripts();
   step();
 })();
 
-const backdrop = document.querySelector(".script-modal-backdrop");
 
-function createRandomGlitch() {
-    const glitch = document.createElement("div");
-    glitch.className = "glitch-hole";
-
-    const width = Math.floor(Math.random() * 180) + 20;
-    const height = Math.floor(Math.random() * 35) + 4;
-
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-
-    glitch.style.width = `${width}px`;
-    glitch.style.height = `${height}px`;
-    glitch.style.left = `${x}%`;
-    glitch.style.top = `${y}%`;
-
-    backdrop.appendChild(glitch);
-
-    setTimeout(() => {
-        glitch.remove();
-    }, 80);
-}
-
-function randomGlitchLoop() {
-    createRandomGlitch();
-
-    // Completely unpredictable delay
-    const delay = Math.random() * 450 + 30;
-
-    setTimeout(randomGlitchLoop, delay);
-}
-
-randomGlitchLoop();
 </script>
 
 </body>
