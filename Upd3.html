@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CiphAnon Studios — Script Library</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
 <style>
 :root{
   --bg:#050505;
@@ -250,14 +255,12 @@ main{
 .tools{
   display:flex;
   gap:10px;
-  margin-bottom:16px;
-  flex-wrap:wrap;
+  margin-bottom:20px;
 }
 
 .search{
   flex:1;
   position:relative;
-  min-width:240px;
 }
 
 .search i{
@@ -297,55 +300,6 @@ main{
   cursor:pointer;
 }
 
-.pagination{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  margin:18px 0 22px;
-  flex-wrap:wrap;
-}
-
-.page-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  min-width:42px;
-  height:40px;
-  padding:0 14px;
-  border:1px solid var(--stroke);
-  border-radius:12px;
-  background:rgba(255,255,255,.04);
-  color:#fff;
-  cursor:pointer;
-  font-family:inherit;
-  transition:.2s;
-}
-
-.page-btn:hover{
-  border-color:rgba(214,161,95,.25);
-  background:rgba(255,255,255,.07);
-}
-
-.page-btn.active{
-  background:var(--accent);
-  color:#050505;
-  border-color:transparent;
-  font-weight:700;
-}
-
-.page-btn:disabled{
-  opacity:.4;
-  cursor:not-allowed;
-}
-
-.pagination-info{
-  color:var(--muted);
-  font-size:11px;
-  margin-left:6px;
-}
-
 .script-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -353,13 +307,13 @@ main{
 }
 
 .script-card{
+  position:relative;
   overflow:hidden;
   border:1px solid var(--stroke);
   border-radius:23px;
   background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
   transition:.25s;
   cursor:pointer;
-  position:relative;
 }
 
 .script-card:hover{
@@ -376,13 +330,6 @@ main{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:10px;
-}
-
-.script-top-left{
-  display:flex;
-  align-items:center;
-  gap:10px;
 }
 
 .script-icon{
@@ -405,32 +352,6 @@ main{
   background:rgba(53,212,119,.07);
   font-size:10px;
   font-weight:600;
-}
-
-.favorite-btn{
-  width:36px;
-  height:36px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(214,161,95,.18);
-  border-radius:12px;
-  background:rgba(214,161,95,.08);
-  color:var(--accent-light);
-  cursor:pointer;
-  transition:.2s;
-  flex-shrink:0;
-}
-
-.favorite-btn:hover{
-  background:rgba(214,161,95,.15);
-  transform:translateY(-1px);
-}
-
-.favorite-btn.favorited{
-  background:rgba(53,212,119,.09);
-  border-color:rgba(53,212,119,.22);
-  color:var(--green);
 }
 
 .script-card h3{
@@ -526,7 +447,9 @@ footer{
   color:var(--accent);
 }
 
+
 /* MODAL */
+
 .script-modal{
   position:fixed;
   inset:0;
@@ -548,6 +471,10 @@ footer{
   backdrop-filter:blur(10px);
 }
 
+.PetClickerCSS{
+  top:-20px;
+}
+
 .script-modal-content{
   position:relative;
   z-index:1;
@@ -564,7 +491,7 @@ footer{
   position:absolute;
   top:14px;
   right:14px;
-  z-index:2;
+  z-index:4;
   width:38px;
   height:38px;
   border:1px solid var(--stroke);
@@ -572,36 +499,6 @@ footer{
   color:#fff;
   background:rgba(255,255,255,.06);
   cursor:pointer;
-}
-
-.modal-nav-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:3;
-  width:42px;
-  height:42px;
-  border:1px solid var(--stroke);
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  backdrop-filter:blur(8px);
-}
-
-.modal-nav-btn:hover{
-  background:rgba(255,255,255,.14);
-}
-
-.modal-nav-btn.prev{
-  left:14px;
-}
-
-.modal-nav-btn.next{
-  right:14px;
 }
 
 .script-modal-image-wrap{
@@ -662,7 +559,6 @@ footer{
   margin-bottom:18px;
   color:#777;
   font-size:11px;
-  flex-wrap:wrap;
 }
 
 .script-modal-code-box{
@@ -682,7 +578,6 @@ footer{
   font-size:9px;
   font-weight:600;
   letter-spacing:.5px;
-  gap:10px;
 }
 
 .script-modal-code-box pre{
@@ -745,7 +640,7 @@ pre::-webkit-scrollbar-thumb{
   content:"|";
   margin-left:6px;
   color:var(--accent-2);
-  animation:blink 0.8s infinite;
+  animation:blink .8s infinite;
 }
 
 @keyframes blink{
@@ -761,31 +656,163 @@ pre::-webkit-scrollbar-thumb{
   transform:rotate(353deg);
 }
 
+
+/* =========================
+   ADDED: CARD STAR
+========================= */
+
+.card-star{
+  position:absolute;
+  top:17px;
+  right:17px;
+  z-index:5;
+
+  width:36px;
+  height:36px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:11px;
+
+  color:#666;
+  background:rgba(0,0,0,.25);
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.card-star:hover{
+  color:var(--accent);
+  border-color:rgba(214,161,95,.3);
+  background:rgba(214,161,95,.08);
+  transform:scale(1.05);
+}
+
+.card-star.saved{
+  color:var(--accent);
+  background:rgba(214,161,95,.1);
+  border-color:rgba(214,161,95,.25);
+}
+
+
+/* =========================
+   ADDED: MODAL ARROWS
+========================= */
+
+.modal-arrow{
+  position:absolute;
+  z-index:5;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:44px;
+  height:44px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border:1px solid var(--stroke);
+  border-radius:13px;
+
+  color:#fff;
+  background:rgba(10,10,10,.75);
+
+  backdrop-filter:blur(10px);
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.modal-arrow:hover{
+  color:var(--accent);
+  border-color:rgba(214,161,95,.35);
+  background:rgba(214,161,95,.1);
+  transform:translateY(-50%) scale(1.05);
+}
+
+.modal-prev{
+  left:14px;
+}
+
+.modal-next{
+  right:14px;
+}
+
+.modal-arrow:disabled{
+  opacity:.2;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+
 @media(max-width:750px){
+
   header{padding:12px;}
+
   .nav{height:58px;}
-  .hero{padding:38px 25px;border-radius:25px;}
-  .hero h1{letter-spacing:-2px;}
-  .stats{grid-template-columns:1fr;}
-  main{padding:30px 12px;}
-  .script-grid{grid-template-columns:1fr;}
-  .tools{flex-direction:column;}
-  .filter{width:100%;}
-  .search{min-width:0;}
-  .modal-nav-btn{width:38px;height:38px;}
-  .modal-nav-btn.prev{left:8px;}
-  .modal-nav-btn.next{right:8px;}
+
+  .hero{
+    padding:38px 25px;
+    border-radius:25px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  main{
+    padding:30px 12px;
+  }
+
+  .script-grid{
+    grid-template-columns:1fr;
+  }
+
+  .tools{
+    flex-direction:column;
+  }
+
+  .filter{
+    width:100%;
+  }
+
+  .modal-arrow{
+    width:38px;
+    height:38px;
+  }
+
+  .modal-prev{
+    left:8px;
+  }
+
+  .modal-next{
+    right:8px;
+  }
 }
 
 @media(max-width:430px){
-  .hero-buttons{flex-direction:column;}
-  .hero-button{justify-content:center;}
-  .script-modal-body{padding:18px;}
-  .script-modal-title{font-size:26px;}
+
+  .hero-buttons{
+    flex-direction:column;
+  }
+
+  .hero-button{
+    justify-content:center;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <nav class="nav">
     <div class="logo">
@@ -794,40 +821,42 @@ pre::-webkit-scrollbar-thumb{
       </div>
       CiphAnon Studios
     </div>
-<img class="Logo" src="Images/Logo.png" alt="CiphAnon Studios Logo">
 
+    <img class="Logo" src="Images/Logo.png" alt="CiphAnon Studios Logo">
   </nav>
+
   <section class="hero">
     <div class="hero-content">
       <div class="badge">
         <i class="fa-solid fa-circle"></i>
         PUBLIC SCRIPT LIBRARY
       </div>
-  <h1>
-    CiphAnon
-    <span>Scripts.</span>
-  </h1>
 
-  <div class="typed" id="typedLine" aria-hidden="true">The Web</div>
+      <h1>
+        CiphAnon
+        <span>Scripts.</span>
+      </h1>
 
-  <p>
-    Browse scripts, tools, experiments and projects created by CiphAnon Studios. Open any script to read its description, view the source code and copy it directly. All made by me!
-  </p>
+      <div class="typed" id="typedLine" aria-hidden="true">The Web</div>
 
-  <div class="hero-buttons">
-    <a href="#scripts" class="hero-button">
-      <i class="fa-solid fa-layer-group"></i>
-      Browse Scripts
-    </a>
+      <p>
+        Browse scripts, tools, experiments and projects created by CiphAnon Studios. Open any script to read its description, view the source code and copy it directly. All made by me!
+      </p>
 
-    <a href="https://youtube.com/@ItsToonyTime" target="_blank" class="hero-button secondary">
-      <i class="fa-brands fa-youtube"></i>
-      YouTube
-    </a>
-  </div>
-</div>
+      <div class="hero-buttons">
+        <a href="#scripts" class="hero-button">
+          <i class="fa-solid fa-layer-group"></i>
+          Browse Scripts
+        </a>
 
+        <a href="https://youtube.com/@ItsToonyTime" target="_blank" class="hero-button secondary">
+          <i class="fa-brands fa-youtube"></i>
+          YouTube
+        </a>
+      </div>
+    </div>
   </section>
+
   <div class="stats">
     <div class="stat">
       <div class="stat-icon">
@@ -838,28 +867,29 @@ pre::-webkit-scrollbar-thumb{
         <p>Scripts</p>
       </div>
     </div>
-<div class="stat">
-  <div class="stat-icon">
-    <i class="fa-solid fa-layer-group"></i>
-  </div>
-  <div>
-    <h2 id="categoryCount">0</h2>
-    <p>Categories</p>
-  </div>
-</div>
 
-<div class="stat">
-  <div class="stat-icon">
-    <i class="fa-solid fa-clock"></i>
-  </div>
-  <div>
-    <h2>08/16/26</h2>
-    <p>Last Updated</p>
-  </div>
-</div>
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fa-solid fa-layer-group"></i>
+      </div>
+      <div>
+        <h2 id="categoryCount">0</h2>
+        <p>Categories</p>
+      </div>
+    </div>
 
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fa-solid fa-clock"></i>
+      </div>
+      <div>
+        <h2>08/16/26</h2>
+        <p>Last Updated</p>
+      </div>
+    </div>
   </div>
 </header>
+
 <main id="scripts">
   <div class="section-header">
     <div>
@@ -867,41 +897,107 @@ pre::-webkit-scrollbar-thumb{
       <p>Browse everything currently available.</p>
     </div>
   </div>
+
   <div class="tools">
     <div class="search">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input id="searchInput" type="text" placeholder="Search scripts...">
     </div>
-<select id="categoryFilter" class="filter">
-  <option value="all">All Categories</option>
-</select>
 
+    <select id="categoryFilter" class="filter">
+      <option value="all">All Categories</option>
+    </select>
   </div>
-  <div class="pagination" id="paginationTop"></div>
+
   <div id="scriptGrid" class="script-grid"></div>
-  <div class="pagination" id="paginationBottom"></div>
+
   <div id="empty" class="empty">
     <i class="fa-solid fa-folder-open"></i>
     <p>No scripts found.</p>
   </div>
 </main>
+
 <footer id="about">
   CiphAnon Studios • Script Library
 </footer>
+
 <nav class="bottom-nav">
   <a href="#" class="active">
     <i class="fa-solid fa-house"></i>
     Home
   </a>
+
   <a href="#scripts">
     <i class="fa-solid fa-code"></i>
     Scripts
   </a>
+
   <a href="https://youtube.com/@ItsToonyTimeSc" target="_blank">
     <i class="fa-brands fa-youtube"></i>
     YouTube
   </a>
 </nav>
+
+<!-- MODAL -->
+
+<div class="script-modal" id="scriptModal">
+
+  <div class="script-modal-backdrop"></div>
+
+  <div class="script-modal-content">
+
+    <button class="script-modal-close" type="button" aria-label="Close modal">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- ADDED: PREVIOUS BUTTON -->
+    <button class="modal-arrow modal-prev" type="button" aria-label="Previous script">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <!-- ADDED: NEXT BUTTON -->
+    <button class="modal-arrow modal-next" type="button" aria-label="Next script">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="script-modal-image-wrap">
+      <img id="PetClickerCSS" class="script-modal-image" src="" alt="">
+    </div>
+
+    <div class="script-modal-body">
+
+      <div class="script-modal-version"></div>
+
+      <h3 class="script-modal-title"></h3>
+
+      <p class="script-modal-description"></p>
+
+      <div class="script-modal-tags"></div>
+
+      <div class="script-modal-meta"></div>
+
+      <div class="script-modal-code-box">
+
+        <div class="script-modal-code-header">
+          <span>SOURCE CODE</span>
+
+          <button class="copy-button modal-copy-button" type="button">
+            <i class="fa-regular fa-copy"></i>
+            Copy Code
+          </button>
+        </div>
+
+        <pre><code class="script-modal-code"></code></pre>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
 <script>
 const scripts = [
   {
@@ -913,340 +1009,902 @@ const scripts = [
     icon: "fa-gamepad",
     image: "Images/PetClicker.png",
     tags: ["JavaScript", "Bookmarklet", "Arcade", "Iframe"],
-    code: `javascript:javascript:(()=>{let p=document.getElementById("bmPanel");if(p){p.style.display=p.style.display==="none"?"flex":"none";return;}p=document.createElement("div");let h=document.createElement("div");let f=document.createElement("iframe");let r=document.createElement("div");p.id="bmPanel";p.style.cssText="position:fixed;top:80px;left:80px;width:800px;height:500px;background:#E29B18;border:2px solid #333;z-index:9999999;display:flex;flex-direction:column";h.style.cssText="height:30px;background:#444;color:#fff;cursor:move;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-family:Arial;user-select:none";h.innerHTML='<span>CiphAnon Studios - YouTube: @ItsToonyTimeSc, @ItsToonyTime, @CiphAnonStudios <b>HIDE WITH P</b> </span><div class="buttons"><button id=bmReload>↻</button><button id=bmFull>⛶</button><button id=bmHide>✘</button></div>';h.querySelectorAll("button").forEach((b,i,arr) => {if(i === 0) {b.style.cssText += "margin-left:0;"; b.style.cssText += "box-sizing:border-box;"; }});f.src="https://ciphanonstudios.github.io/Pet-Clicker/";f.style.cssText="flex:1;border:none";r.style.cssText="width:14px;height:14px;position:absolute;right:0;bottom:0;background:#000;cursor:se-resize";h.style.borderBottom="2px solid #333"; h.style.padding="0 8px"; p.append(h,f,r);document.body.appendChild(p);let dx=0,dy=0,drag=false,resize=false,w=0,hg=0;h.onmousedown=e=>{drag=true;dx=e.clientX-p.offsetLeft;dy=e.clientY-p.offsetTop;f.style.pointerEvents="none";};r.onmousedown=e=>{resize=true;w=p.offsetWidth;hg=p.offsetHeight;dx=e.clientX;dy=e.clientY;f.style.pointerEvents="none";e.preventDefault();};document.addEventListener("mousemove",e=>{if(drag){p.style.left=e.clientX-dx+"px";p.style.top=e.clientY-dy+"px";}if(resize){p.style.width=w+(e.clientX-dx)+"px";p.style.height=hg+(e.clientY-dy)+"px";}});document.addEventListener("mouseup",()=>{drag=false;resize=false;f.style.pointerEvents="auto";});let fs=false,prev={};document.getElementById("bmHide").onclick=()=>{p.style.display="none";};document.getElementById("bmFull").onclick=()=>{if(!fs){prev={l:p.style.left,t:p.style.top,w:p.style.width,h:p.style.height};p.style.left="0";p.style.top="0";p.style.width="100vw";p.style.height="100vh";}else{p.style.left=prev.l;p.style.top=prev.t;p.style.width=prev.w;p.style.height=prev.h;}fs=!fs;};const reloadButton = document.getElementById("bmReload");reloadButton.onclick = () => { f.src = f.src; };document.addEventListener('keydown',event=>{if(event.key==='p'||event.key==='P'){p.style.display=p.style.display==="none"?"flex":"none";}});})();
-`
+    code: `javascript:javascript:(()=>{let p=document.getElementById("bmPanel");if(p){p.style.display=p.style.display==="none"?"flex":"none";return;}p=document.createElement("div");let h=document.createElement("div");let f=document.createElement("iframe");let r=document.createElement("div");p.id="bmPanel";p.style.cssText="position:fixed;top:80px;left:80px;width:800px;height:500px;background:#E29B18;border:2px solid #333;z-index:9999999;display:flex;flex-direction:column";h.style.cssText="height:30px;background:#444;color:#fff;cursor:move;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-family:Arial;user-select:none";h.innerHTML='<span>CiphAnon Studios - YouTube: @ItsToonyTimeSc, @ItsToonyTime, @CiphAnonStudios <b>HIDE WITH P</b> </span><div class="buttons"><button id=bmReload>↻</button><button id=bmFull>⛶</button><button id=bmHide>✘</button></div>';h.querySelectorAll("button").forEach((b,i,arr) => {if(i === 0) {b.style.cssText += "margin-left:0;"; b.style.cssText += "box-sizing:border-box;"; }});f.src="https://ciphanonstudios.github.io/Pet-Clicker/";f.style.cssText="flex:1;border:none";r.style.cssText="width:14px;height:14px;position:absolute;right:0;bottom:0;background:#000;cursor:se-resize";h.style.borderBottom="2px solid #333";h.style.padding="0 8px";p.append(h,f,r);document.body.appendChild(p);let dx=0,dy=0,drag=false,resize=false,w=0,hg=0;h.onmousedown=e=>{drag=true;dx=e.clientX-p.offsetLeft;dy=e.clientY-p.offsetTop;f.style.pointerEvents="none";};r.onmousedown=e=>{resize=true;w=p.offsetWidth;hg=p.offsetHeight;dx=e.clientX;dy=e.clientY;f.style.pointerEvents="none";e.preventDefault();};document.addEventListener("mousemove",e=>{if(drag){p.style.left=e.clientX-dx+"px";p.style.top=e.clientY-dy+"px";}if(resize){p.style.width=w+(e.clientX-dx)+"px";p.style.height=hg+(e.clientY-dy)+"px";}});document.addEventListener("mouseup",()=>{drag=false;resize=false;f.style.pointerEvents="auto";});let fs=false,prev={};document.getElementById("bmHide").onclick=()=>{p.style.display="none";};document.getElementById("bmFull").onclick=()=>{if(!fs){prev={l:p.style.left,t:p.style.top,w:p.style.width,h:p.style.height};p.style.left="0";p.style.top="0";p.style.width="100vw";p.style.height="100vh";}else{p.style.left=prev.l;p.style.top=prev.t;p.style.width=prev.w;p.style.height=prev.h;}fs=!fs;};const reloadButton=document.getElementById("bmReload");reloadButton.onclick=()=>{f.src=f.src;};document.addEventListener('keydown',event=>{if(event.key==='p'||event.key==='P'){p.style.display=p.style.display==="none"?"flex":"none";}});})();`
   }
+
+  // ADD MORE SCRIPT OBJECTS HERE
 ];
 
-const PAGE_SIZE = 4;
+
+// =====================================
+// BASIC ELEMENTS
+// =====================================
+
 const grid = document.getElementById("scriptGrid");
 const searchInput = document.getElementById("searchInput");
 const categoryFilter = document.getElementById("categoryFilter");
 const empty = document.getElementById("empty");
-const paginationTop = document.getElementById("paginationTop");
-const paginationBottom = document.getElementById("paginationBottom");
 
-const STORAGE_KEY = "ciphanon_favorite_scripts";
-let currentPage = 1;
-let modalIndex = -1;
 
-function loadFavorites(){
-  try{
-    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-  }catch{
-    return [];
+// =====================================
+// SAVED / FAVORITE SCRIPTS
+// =====================================
+
+let savedScripts = [];
+
+try {
+  savedScripts =
+    JSON.parse(
+      localStorage.getItem("ciphanonSavedScripts") || "[]"
+    );
+
+  if (!Array.isArray(savedScripts)) {
+    savedScripts = [];
   }
+
+} catch(error) {
+  savedScripts = [];
 }
 
-function saveFavorites(favorites){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+
+function isSaved(script){
+  return savedScripts.includes(script.name);
 }
 
-function getFavoritesSet(){
-  return new Set(loadFavorites());
-}
 
-function toggleFavorite(scriptName){
-  const favorites = loadFavorites();
-  const index = favorites.indexOf(scriptName);
+function toggleSaved(script){
+
+  const index =
+    savedScripts.indexOf(script.name);
+
   if(index === -1){
-    favorites.push(scriptName);
+
+    savedScripts.push(script.name);
+
   }else{
-    favorites.splice(index, 1);
+
+    savedScripts.splice(index, 1);
+
   }
-  saveFavorites(favorites);
+
+  localStorage.setItem(
+    "ciphanonSavedScripts",
+    JSON.stringify(savedScripts)
+  );
+
+  renderScripts();
 }
 
-document.getElementById("scriptCount").textContent = scripts.length;
 
-const categories = [...new Set(scripts.map(script => script.category))];
-document.getElementById("categoryCount").textContent = categories.length;
+// =====================================
+// STATS
+// =====================================
+
+document.getElementById("scriptCount").textContent =
+  scripts.length;
+
+
+const categories =
+  [...new Set(
+    scripts.map(script => script.category)
+  )];
+
+
+document.getElementById("categoryCount").textContent =
+  categories.length;
+
+
+// =====================================
+// CATEGORY FILTER
+// =====================================
+
+// Keep your normal categories
 
 categories.forEach(category => {
-  const option = document.createElement("option");
+
+  const option =
+    document.createElement("option");
+
   option.value = category;
+
   option.textContent = category;
+
   categoryFilter.appendChild(option);
+
 });
 
-const modal = document.createElement("div");
-modal.className = "script-modal";
-modal.innerHTML = `
-  <div class="script-modal-backdrop"></div>
-  <button class="modal-nav-btn prev" type="button" aria-label="Previous script">
-    <i class="fa-solid fa-chevron-left"></i>
-  </button>
-  <button class="modal-nav-btn next" type="button" aria-label="Next script">
-    <i class="fa-solid fa-chevron-right"></i>
-  </button>
-  <div class="script-modal-content">
-    <button class="script-modal-close" type="button" aria-label="Close modal">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
 
-    <div class="script-modal-image-wrap">
-      <img class="script-modal-image" src="" alt="">
-    </div>
+// ADD FAVORITES TO THE CATEGORY FILTER
 
-    <div class="script-modal-body">
-      <div class="script-modal-version"></div>
-      <h3 class="script-modal-title"></h3>
-      <p class="script-modal-description"></p>
+const favoritesOption =
+  document.createElement("option");
 
-      <div class="script-modal-tags"></div>
-      <div class="script-modal-meta"></div>
+favoritesOption.value = "favorites";
 
-      <div class="script-modal-code-box">
-        <div class="script-modal-code-header">
-          <span>SOURCE CODE</span>
-          <button class="copy-button modal-copy-button" type="button">
-            <i class="fa-regular fa-copy"></i>
-            Copy Code
-          </button>
-        </div>
-        <pre><code class="script-modal-code"></code></pre>
-  </div>
-</div>
+favoritesOption.textContent = "★ Favorites";
 
-  </div>
-`;
-document.body.appendChild(modal);
-const modalBackdrop = modal.querySelector(".script-modal-backdrop");
-const modalClose = modal.querySelector(".script-modal-close");
-const modalPrev = modal.querySelector(".modal-nav-btn.prev");
-const modalNext = modal.querySelector(".modal-nav-btn.next");
-const modalImage = modal.querySelector(".script-modal-image");
-const modalVersion = modal.querySelector(".script-modal-version");
-const modalTitle = modal.querySelector(".script-modal-title");
-const modalDescription = modal.querySelector(".script-modal-description");
-const modalTags = modal.querySelector(".script-modal-tags");
-const modalMeta = modal.querySelector(".script-modal-meta");
-const modalCode = modal.querySelector(".script-modal-code");
-const modalCopyButton = modal.querySelector(".modal-copy-button");
+categoryFilter.appendChild(favoritesOption);
+
+
+// =====================================
+// ESCAPE HTML
+// =====================================
+
 function escapeHTML(text){
-return text
-.replace(/&/g, "&")
-.replace(/</g, "<")
-.replace(/>/g, ">")
-.replace(/"/g, """)
-.replace(/'/g, "'");
-}
-function getFilteredScripts(){
-const search = searchInput.value.toLowerCase().trim();
-const selectedCategory = categoryFilter.value;
-const favorites = getFavoritesSet();
-return scripts.filter(script => {
-const searchMatch =
-script.name.toLowerCase().includes(search) ||
-script.description.toLowerCase().includes(search) ||
-script.tags.join(" ").toLowerCase().includes(search);
-const categoryMatch =
-  selectedCategory === "all" ||
-  script.category === selectedCategory;
 
-return searchMatch && categoryMatch;
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
-});
 }
-function getPagedScripts(filtered){
-const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-if(currentPage > totalPages) currentPage = totalPages;
-if(currentPage < 1) currentPage = 1;
-const start = (currentPage - 1) * PAGE_SIZE;
-return {
-totalPages,
-pageItems: filtered.slice(start, start + PAGE_SIZE)
-};
-}
-function renderPagination(container, totalPages){
-if(totalPages <= 1){
-container.innerHTML = "";
-return;
-}
-let html =     <button class="page-btn" data-page="prev" ${currentPage === 1 ? "disabled" : ""}>       <i class="fa-solid fa-chevron-left"></i>     </button>  ;
-for(let i = 1; i <= totalPages; i++){
-html += <button class="page-btn ${i === currentPage ? "active" : ""}" data-page="${i}">${i}</button>;
-}
-html +=     <button class="page-btn" data-page="next" ${currentPage === totalPages ? "disabled" : ""}>       <i class="fa-solid fa-chevron-right"></i>     </button>     <span class="pagination-info">Page ${currentPage} of ${totalPages}</span>  ;
-container.innerHTML = html;
-}
-function syncPaginationHandlers(){
-[paginationTop, paginationBottom].forEach(container => {
-container.querySelectorAll(".page-btn").forEach(btn => {
-btn.addEventListener("click", () => {
-const page = btn.dataset.page;
-const filtered = getFilteredScripts();
-const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-    if(page === "prev" && currentPage > 1) currentPage--;
-    else if(page === "next" && currentPage < totalPages) currentPage++;
-    else if(!isNaN(page)) currentPage = Number(page);
 
-    renderScripts();
-  });
-});
 
-});
-}
-function openModalByFilteredIndex(filteredIndex){
-modalIndex = filteredIndex;
-openModal(getFilteredScripts()[modalIndex]);
-}
+// =====================================
+// MODAL
+// =====================================
+
+const modal =
+  document.getElementById("scriptModal");
+
+
+const modalBackdrop =
+  modal.querySelector(".script-modal-backdrop");
+
+
+const modalClose =
+  modal.querySelector(".script-modal-close");
+
+
+const modalImage =
+  modal.querySelector(".script-modal-image");
+
+
+const modalVersion =
+  modal.querySelector(".script-modal-version");
+
+
+const modalTitle =
+  modal.querySelector(".script-modal-title");
+
+
+const modalDescription =
+  modal.querySelector(".script-modal-description");
+
+
+const modalTags =
+  modal.querySelector(".script-modal-tags");
+
+
+const modalMeta =
+  modal.querySelector(".script-modal-meta");
+
+
+const modalCode =
+  modal.querySelector(".script-modal-code");
+
+
+const modalCopyButton =
+  modal.querySelector(".modal-copy-button");
+
+
+// =====================================
+// MODAL ARROWS
+// =====================================
+
+const modalPrev =
+  modal.querySelector(".modal-prev");
+
+
+const modalNext =
+  modal.querySelector(".modal-next");
+
+
+let currentIndex = 0;
+
+let currentScripts = [];
+
+let currentScript = null;
+
+
+// =====================================
+// OPEN MODAL
+// =====================================
+
 function openModal(script){
-if(!script) return;
-const filtered = getFilteredScripts();
-modalIndex = filtered.findIndex(item => item.name === script.name);
-modalImage.src = script.image || "Images/Logo.png";
-modalImage.alt = script.name;
-modalVersion.textContent = script.version;
-modalTitle.textContent = script.name;
-modalDescription.textContent = script.description;
-modalCode.textContent = script.code;
-modalTags.innerHTML = script.tags.map(tag => <span class="tag">${tag}</span>).join("");
-modalMeta.innerHTML =     <span><i class="fa-regular fa-calendar"></i> ${script.date}</span>     <span>${script.category}</span>  ;
-modal.classList.add("active");
-document.body.classList.add("modal-open");
-modalCopyButton.classList.remove("copied");
-modalCopyButton.innerHTML = <i class="fa-regular fa-copy"></i> Copy Code;
-modalCopyButton.onclick = async () => {
-try{
-await navigator.clipboard.writeText(script.code);
-modalCopyButton.classList.add("copied");
-modalCopyButton.innerHTML = <i class="fa-solid fa-check"></i> Copied!;
-setTimeout(() => {
-modalCopyButton.classList.remove("copied");
-modalCopyButton.innerHTML = <i class="fa-regular fa-copy"></i> Copy Code;
-}, 1600);
-}catch(error){
-console.error("Could not copy code:", error);
-modalCopyButton.innerHTML = <i class="fa-solid fa-xmark"></i> Copy Failed;
+
+  currentScript = script;
+
+
+  currentIndex =
+    currentScripts.findIndex(
+      item => item.name === script.name
+    );
+
+
+  // If somehow the script isn't in the
+  // current filtered list, use its real index.
+
+  if(currentIndex === -1){
+
+    currentIndex =
+      scripts.findIndex(
+        item => item.name === script.name
+      );
+
+  }
+
+
+  modalImage.src =
+    script.image || "Images/Logo.png";
+
+
+  modalImage.alt =
+    script.name;
+
+
+  modalVersion.textContent =
+    script.version;
+
+
+  modalTitle.textContent =
+    script.name;
+
+
+  modalDescription.textContent =
+    script.description;
+
+
+  modalCode.textContent =
+    script.code;
+
+
+  modalTags.innerHTML =
+    script.tags
+      .map(tag =>
+        `<span class="tag">${escapeHTML(tag)}</span>`
+      )
+      .join("");
+
+
+  modalMeta.innerHTML = `
+
+    <span>
+      <i class="fa-regular fa-calendar"></i>
+      ${escapeHTML(script.date)}
+    </span>
+
+    <span>
+      ${escapeHTML(script.category)}
+    </span>
+
+  `;
+
+
+  updateArrows();
+
+
+  modal.classList.add("active");
+
+  document.body.classList.add("modal-open");
+
+
+  modalCopyButton.classList.remove("copied");
+
+
+  modalCopyButton.innerHTML = `
+    <i class="fa-regular fa-copy"></i>
+    Copy Code
+  `;
+
 }
-};
+
+
+// =====================================
+// UPDATE MODAL ARROWS
+// =====================================
+
+function updateArrows(){
+
+  modalPrev.disabled =
+    currentIndex <= 0;
+
+
+  modalNext.disabled =
+    currentIndex >=
+    currentScripts.length - 1;
+
 }
+
+
+// =====================================
+// PREVIOUS SCRIPT
+// =====================================
+
+modalPrev.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    if(currentIndex <= 0){
+      return;
+    }
+
+
+    currentIndex--;
+
+
+    openModal(
+      currentScripts[currentIndex]
+    );
+
+  }
+);
+
+
+// =====================================
+// NEXT SCRIPT
+// =====================================
+
+modalNext.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    if(
+      currentIndex >=
+      currentScripts.length - 1
+    ){
+
+      return;
+
+    }
+
+
+    currentIndex++;
+
+
+    openModal(
+      currentScripts[currentIndex]
+    );
+
+  }
+);
+
+
+// =====================================
+// CLOSE MODAL
+// =====================================
+
 function closeModal(){
-modal.classList.remove("active");
-document.body.classList.remove("modal-open");
+
+  modal.classList.remove("active");
+
+  document.body.classList.remove("modal-open");
+
 }
-function moveModal(step){
-const filtered = getFilteredScripts();
-if(!filtered.length) return;
-modalIndex += step;
-if(modalIndex < 0) modalIndex = filtered.length - 1;
-if(modalIndex >= filtered.length) modalIndex = 0;
-openModal(filtered[modalIndex]);
-}
-modalBackdrop.addEventListener("click", closeModal);
-modalClose.addEventListener("click", closeModal);
-modalPrev.addEventListener("click", () => moveModal(-1));
-modalNext.addEventListener("click", () => moveModal(1));
-document.addEventListener("keydown", (e) => {
-if(e.key === "Escape") closeModal();
-if(!modal.classList.contains("active")) return;
-if(e.key === "ArrowLeft") moveModal(-1);
-if(e.key === "ArrowRight") moveModal(1);
-});
+
+
+modalBackdrop.addEventListener(
+  "click",
+  closeModal
+);
+
+
+modalClose.addEventListener(
+  "click",
+  closeModal
+);
+
+
+// =====================================
+// KEYBOARD CONTROLS
+// =====================================
+
+document.addEventListener(
+  "keydown",
+  e => {
+
+    if(
+      !modal.classList.contains("active")
+    ){
+
+      return;
+
+    }
+
+
+    if(e.key === "Escape"){
+
+      closeModal();
+
+    }
+
+
+    if(e.key === "ArrowLeft"){
+
+      if(!modalPrev.disabled){
+
+        modalPrev.click();
+
+      }
+
+    }
+
+
+    if(e.key === "ArrowRight"){
+
+      if(!modalNext.disabled){
+
+        modalNext.click();
+
+      }
+
+    }
+
+  }
+);
+
+
+// =====================================
+// COPY CODE
+// =====================================
+
+modalCopyButton.onclick =
+  async () => {
+
+    if(!currentScript){
+
+      return;
+
+    }
+
+
+    try{
+
+      await navigator.clipboard.writeText(
+        currentScript.code
+      );
+
+
+      modalCopyButton.classList.add(
+        "copied"
+      );
+
+
+      modalCopyButton.innerHTML = `
+        <i class="fa-solid fa-check"></i>
+        Copied!
+      `;
+
+
+      setTimeout(() => {
+
+        modalCopyButton.classList.remove(
+          "copied"
+        );
+
+
+        modalCopyButton.innerHTML = `
+          <i class="fa-regular fa-copy"></i>
+          Copy Code
+        `;
+
+      }, 1600);
+
+
+    }catch(error){
+
+      console.error(
+        "Could not copy code:",
+        error
+      );
+
+
+      modalCopyButton.innerHTML = `
+        <i class="fa-solid fa-xmark"></i>
+        Copy Failed
+      `;
+
+    }
+
+  };
+
+
+// =====================================
+// RENDER CARDS
+// =====================================
+
 function renderScripts(){
-const filtered = getFilteredScripts();
-const { totalPages, pageItems } = getPagedScripts(filtered);
-const favorites = getFavoritesSet();
-grid.innerHTML = "";
-empty.style.display = filtered.length === 0 ? "block" : "none";
-renderPagination(paginationTop, totalPages);
-renderPagination(paginationBottom, totalPages);
-pageItems.forEach(script => {
-const isFavorite = favorites.has(script.name);
-const card = document.createElement("article");
-card.className = "script-card";
-card.innerHTML = `
-  <div class="script-content">
-    <div class="script-top">
-      <div class="script-top-left">
-        <div class="script-icon">
-          <i class="fa-solid ${script.icon}"></i>
+
+  const search =
+    searchInput.value
+      .toLowerCase()
+      .trim();
+
+
+  const selectedCategory =
+    categoryFilter.value;
+
+
+  // Build the list that will appear
+  // on the page AND be used by the modal arrows.
+
+  currentScripts =
+    scripts.filter(script => {
+
+
+      const searchMatch =
+
+        script.name
+          .toLowerCase()
+          .includes(search)
+
+        ||
+
+        script.description
+          .toLowerCase()
+          .includes(search)
+
+        ||
+
+        script.tags
+          .join(" ")
+          .toLowerCase()
+          .includes(search);
+
+
+      let categoryMatch;
+
+
+      // FAVORITES FILTER
+
+      if(selectedCategory === "favorites"){
+
+        categoryMatch =
+          isSaved(script);
+
+      }else{
+
+        categoryMatch =
+
+          selectedCategory === "all"
+
+          ||
+
+          script.category ===
+            selectedCategory;
+
+      }
+
+
+      return (
+        searchMatch &&
+        categoryMatch
+      );
+
+    });
+
+
+  grid.innerHTML = "";
+
+
+  empty.style.display =
+    currentScripts.length === 0
+      ? "block"
+      : "none";
+
+
+  // Change empty message depending
+  // on whether Favorites is selected.
+
+  if(
+    currentScripts.length === 0 &&
+    selectedCategory === "favorites"
+  ){
+
+    empty.querySelector("p").textContent =
+      "You haven't favorited any scripts yet.";
+
+  }else{
+
+    empty.querySelector("p").textContent =
+      "No scripts found.";
+
+  }
+
+
+  currentScripts.forEach(script => {
+
+    const card =
+      document.createElement("article");
+
+
+    card.className =
+      "script-card";
+
+
+    const saved =
+      isSaved(script);
+
+
+    card.innerHTML = `
+
+      <!-- FAVORITE STAR -->
+
+      <button
+        class="card-star ${saved ? "saved" : ""}"
+        type="button"
+        aria-label="${
+          saved
+            ? "Remove from favorites"
+            : "Add to favorites"
+        }"
+      >
+
+        <i class="${
+          saved
+            ? "fa-solid fa-star"
+            : "fa-regular fa-star"
+        }"></i>
+
+      </button>
+
+
+      <div class="script-content">
+
+        <div class="script-top">
+
+          <div class="script-icon">
+
+            <i class="fa-solid ${escapeHTML(script.icon)}"></i>
+
+          </div>
+
+
+          <div class="version">
+
+            ${escapeHTML(script.version)}
+
+          </div>
+
         </div>
-        <div class="version">${script.version}</div>
+
+
+        <h3>
+          ${escapeHTML(script.name)}
+        </h3>
+
+
+        <p class="description">
+
+          ${escapeHTML(script.description)}
+
+        </p>
+
+
+        <div class="tags">
+
+          ${script.tags
+            .map(tag =>
+              `<span class="tag">
+                ${escapeHTML(tag)}
+              </span>`
+            )
+            .join("")}
+
+        </div>
+
+
+        <div class="meta">
+
+          <span>
+
+            <i class="fa-regular fa-calendar"></i>
+
+            ${escapeHTML(script.date)}
+
+          </span>
+
+
+          <span>
+
+            ${escapeHTML(script.category)}
+
+          </span>
+
+        </div>
+
       </div>
 
-      <button class="favorite-btn ${isFavorite ? "favorited" : ""}" type="button" aria-label="Toggle favorite">
-        <i class="fa-${isFavorite ? "solid" : "regular"} fa-star"></i>
-      </button>
-    </div>
+    `;
 
-    <h3>${escapeHTML(script.name)}</h3>
-    <p class="description">${escapeHTML(script.description)}</p>
 
-    <div class="tags">
-      ${script.tags.map(tag => `<span class="tag">${escapeHTML(tag)}</span>`).join("")}
-    </div>
+    // =================================
+    // FAVORITE STAR
+    // =================================
 
-    <div class="meta">
-      <span><i class="fa-regular fa-calendar"></i> ${script.date}</span>
-      <span>${escapeHTML(script.category)}</span>
-    </div>
-  </div>
-`;
+    const star =
+      card.querySelector(".card-star");
 
-card.addEventListener("click", (e) => {
-  if(e.target.closest(".favorite-btn")) return;
-  openModal(script);
-});
 
-const favBtn = card.querySelector(".favorite-btn");
-favBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  toggleFavorite(script.name);
-  renderScripts();
-});
+    star.addEventListener(
+      "click",
+      event => {
 
-grid.appendChild(card);
+        // Prevent card click
 
-});
-syncPaginationHandlers();
+        event.stopPropagation();
+
+
+        toggleSaved(script);
+
+      }
+    );
+
+
+    // =================================
+    // CARD OPENS MODAL
+    // =================================
+
+    card.addEventListener(
+      "click",
+      () => {
+
+        openModal(script);
+
+      }
+    );
+
+
+    grid.appendChild(card);
+
+  });
+
 }
-searchInput.addEventListener("input", () => {
-currentPage = 1;
+
+
+// =====================================
+// SEARCH
+// =====================================
+
+searchInput.addEventListener(
+  "input",
+  renderScripts
+);
+
+
+// =====================================
+// CATEGORY / FAVORITES FILTER
+// =====================================
+
+categoryFilter.addEventListener(
+  "change",
+  renderScripts
+);
+
+
+// =====================================
+// INITIAL RENDER
+// =====================================
+
 renderScripts();
-});
-categoryFilter.addEventListener("change", () => {
-currentPage = 1;
-renderScripts();
-});
-renderScripts();
+
+
+// =====================================
+// TYPING ANIMATION
+// =====================================
+
 (function(){
-const el = document.getElementById('typedLine');
-if(!el) return;
-const lines = [
-'Coding I So Fun!!!',
-'Fully Self-Taught Coder.',
-'YouTube: @ItsToonyTime',
-'My Full Inventory For All My Script And Coding Projects I Have Made.',
-'YouTube: @CiphAnonStudios',
-'Coding Is So Fun.',
-'YouTube: @ItsToonyTimeC',
-'All Started Because I wanted to Play Games At School 4 Years Ago.'
-];
-let i=0,pos=0,forward=true;
-function step(){
-const text = lines[i];
-if(forward){
-pos++;
-el.textContent = text.slice(0,pos);
-if(pos===text.length){
-forward=false;
-setTimeout(step,900);
-return;
-}
-}else{
-pos--;
-el.textContent = text.slice(0,pos);
-if(pos===0){
-forward=true;
-i=(i+1)%lines.length;
-}
-}
-setTimeout(step, forward ? 60 : 35);
-}
-step();
+
+  const el =
+    document.getElementById(
+      "typedLine"
+    );
+
+
+  if(!el){
+
+    return;
+
+  }
+
+
+  const lines = [
+
+    "Coding I So Fun!!!",
+
+    "Fully Self-Taught Coder.",
+
+    "YouTube: @ItsToonyTime",
+
+    "My Full Inventory For All My Script And Coding Projects I Have Made.",
+
+    "YouTube: @CiphAnonStudios",
+
+    "Coding Is So Fun.",
+
+    "YouTube: @ItsToonyTimeC",
+
+    "All Started Because I wanted to Play Games At School 4 Years Ago."
+
+  ];
+
+
+  let i = 0;
+
+  let pos = 0;
+
+  let forward = true;
+
+
+  function step(){
+
+    const text =
+      lines[i];
+
+
+    if(forward){
+
+      pos++;
+
+
+      el.textContent =
+        text.slice(0,pos);
+
+
+      if(pos === text.length){
+
+        forward = false;
+
+
+        setTimeout(
+          step,
+          900
+        );
+
+
+        return;
+
+      }
+
+    }else{
+
+      pos--;
+
+
+      el.textContent =
+        text.slice(0,pos);
+
+
+      if(pos === 0){
+
+        forward = true;
+
+
+        i =
+          (i + 1) %
+          lines.length;
+
+      }
+
+    }
+
+
+    setTimeout(
+      step,
+      forward ? 60 : 35
+    );
+
+  }
+
+
+  step();
+
 })();
 </script>
-</body>
 </html>
