@@ -12,9 +12,7 @@
 :root{
   --bg:#050505;
   --panel:#0b0b0b;
-  --panel-2:#111111;
   --stroke:rgba(255,255,255,.08);
-  --stroke-strong:rgba(214,161,95,.28);
   --text:#ffffff;
   --muted:#8d8d8d;
   --accent:#d6a15f;
@@ -321,37 +319,62 @@ main{
 }
 
 .project-card{
+  position:relative;
   display:flex;
   align-items:stretch;
   overflow:hidden;
   border:1px solid var(--stroke);
   border-radius:18px;
-  background:rgba(5,5,5,.9);
-  box-shadow:0 14px 30px rgba(0,0,0,.32);
+  box-shadow:0 14px 30px rgba(0,0,0,.34);
   transition:.22s ease;
   min-height:122px;
-  position:relative;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.56)),
+    var(--bg);
 }
 
 .project-card::before{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg, rgba(214,161,95,.10), transparent 45%);
+  background:
+    url("") center/cover no-repeat;
   opacity:0;
-  transition:.22s ease;
   pointer-events:none;
 }
 
 .project-card:hover{
   transform:translateY(-3px);
-  border-color:var(--stroke-strong);
+  border-color:rgba(214,161,95,.28);
   box-shadow:0 20px 42px rgba(0,0,0,.48);
-  background:rgba(4,4,4,.96);
 }
 
-.project-card:hover::before{
-  opacity:1;
+.project-card-bg{
+  position:absolute;
+  inset:0;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  filter:blur(10px) brightness(.45) saturate(.9);
+  transform:scale(1.1);
+  z-index:0;
+}
+
+.project-card-dark{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg, rgba(0,0,0,.72), rgba(0,0,0,.5)),
+    linear-gradient(to right, rgba(214,161,95,.08), transparent 35%);
+  z-index:1;
+}
+
+.project-card-inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  width:100%;
+  min-height:122px;
 }
 
 .project-image{
@@ -359,28 +382,17 @@ main{
   width:148px;
   min-width:148px;
   overflow:hidden;
-  background:#030303;
+  background:#111;
   clip-path:polygon(0 0, 92% 0, 100% 100%, 0 100%);
   border-right:1px solid rgba(255,255,255,.06);
-}
-
-.project-image::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.32);
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  z-index:1;
 }
 
 .project-image::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.58), transparent 55%);
+  background:linear-gradient(to top, rgba(0,0,0,.25), transparent 55%);
   pointer-events:none;
-  z-index:2;
 }
 
 .project-image img{
@@ -388,27 +400,24 @@ main{
   height:100%;
   display:block;
   object-fit:cover;
-  transform:scale(1.04);
-  filter:brightness(.72) saturate(.9) contrast(1.05);
   transition:.3s ease;
 }
 
 .project-card:hover .project-image img{
-  transform:scale(1.08);
-  filter:brightness(.78) saturate(1);
+  transform:scale(1.05);
 }
 
 .project-badge{
   position:absolute;
   left:10px;
   top:10px;
-  z-index:3;
+  z-index:2;
   display:flex;
   align-items:center;
   gap:6px;
   padding:6px 9px;
   border-radius:999px;
-  background:rgba(10,10,10,.8);
+  background:rgba(10,10,10,.72);
   border:1px solid rgba(255,255,255,.08);
   color:#fff;
   font-size:9px;
@@ -1037,47 +1046,52 @@ function renderProjects(){
     card.className = "project-card";
 
     card.innerHTML = `
-      <div class="project-image">
-        <div class="project-badge">
-          <i class="fa-solid fa-gamepad"></i>
-          Ready to Play
-        </div>
+      <div class="project-card-bg" style="background-image:url('${escapeHTML(project.image)}')"></div>
+      <div class="project-card-dark"></div>
 
-        <img
-          src="${escapeHTML(project.image)}"
-          alt="${escapeHTML(project.name)}"
-          loading="lazy"
-        >
-      </div>
-
-      <div class="project-content">
-        <div class="project-top">
-          <div class="project-icon">
-            <i class="fa-solid ${escapeHTML(project.icon)}"></i>
+      <div class="project-card-inner">
+        <div class="project-image">
+          <div class="project-badge">
+            <i class="fa-solid fa-gamepad"></i>
+            Ready to Play
           </div>
 
-          <div class="version">${escapeHTML(project.version)}</div>
+          <img
+            src="${escapeHTML(project.image)}"
+            alt="${escapeHTML(project.name)}"
+            loading="lazy"
+          >
         </div>
 
-        <h3>${escapeHTML(project.name)}</h3>
-        <p class="description">${escapeHTML(project.description)}</p>
+        <div class="project-content">
+          <div class="project-top">
+            <div class="project-icon">
+              <i class="fa-solid ${escapeHTML(project.icon)}"></i>
+            </div>
 
-        <div class="tags">
-          ${project.tags.map(tag => `
-            <span class="tag">${escapeHTML(tag)}</span>
-          `).join("")}
-        </div>
-
-        <div class="project-footer">
-          <div class="meta">
-            <i class="fa-regular fa-calendar"></i>
-            ${escapeHTML(project.date)}
+            <div class="version">${escapeHTML(project.version)}</div>
           </div>
 
-          <button class="launch-button" type="button">
-            <i class="fa-solid fa-play"></i>
-            Play
-          </button>
+          <h3>${escapeHTML(project.name)}</h3>
+          <p class="description">${escapeHTML(project.description)}</p>
+
+          <div class="tags">
+            ${project.tags.map(tag => `
+              <span class="tag">${escapeHTML(tag)}</span>
+            `).join("")}
+          </div>
+
+          <div class="project-footer">
+            <div class="meta">
+              <i class="fa-regular fa-calendar"></i>
+              ${escapeHTML(project.date)}
+            </div>
+
+            <button class="launch-button" type="button">
+              <i class="fa-solid fa-play"></i>
+              Play
+            </button>
+          </div>
         </div>
       </div>
     `;
