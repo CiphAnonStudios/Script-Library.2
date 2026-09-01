@@ -1,3 +1,6 @@
+I’m going to tighten the tile styling further and switch the image treatment to a slanted / cut so it feels more polished.Yes — I’d make the cards **smaller, sharper, and more like arcade buttons**, with a **slanted image edge** instead of a straight block.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -329,7 +332,7 @@ main{
   background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
   box-shadow:0 14px 30px rgba(0,0,0,.32);
   transition:.22s ease;
-  min-height:120px;
+  min-height:122px;
 }
 
 .project-card:hover{
@@ -344,6 +347,7 @@ main{
   min-width:150px;
   overflow:hidden;
   background:#030303;
+  clip-path:polygon(0 0, 92% 0, 100% 100%, 0 100%);
   border-right:1px solid rgba(255,255,255,.06);
 }
 
@@ -1155,3 +1159,4 @@ renderProjects();
 </script>
 </body>
 </html>
+```
