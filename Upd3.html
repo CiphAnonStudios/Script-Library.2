@@ -698,29 +698,23 @@ pre::-webkit-scrollbar-thumb{
    ADDED: MODAL ARROWS
 ========================= */
 
-.modal-arrow{
-  position:absolute;
-  z-index:10;
-  top:50%;
-  transform:translateY(-50%);
-
-  width:44px;
-  height:44px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  border:1px solid var(--stroke);
-  border-radius:13px;
-
-  color:#fff;
-  background:rgba(10,10,10,.75);
-
-  backdrop-filter:blur(10px);
-
-  cursor:pointer;
-  transition:.2s;
+.modal-arrow {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--stroke);
+    border-radius: 13px;
+    color: #fff;
+    background: rgba(10, 10, 10, .75);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: .2s;
 }
 
 .modal-arrow:hover{
@@ -732,10 +726,12 @@ pre::-webkit-scrollbar-thumb{
 
 .modal-prev{
   left:14px;
+  top: 135px;
 }
 
-.modal-next{
-  right:-30px;
+.modal-next {
+    right: 14px;
+    top: 135px;
 }
 
 .modal-arrow:disabled{
